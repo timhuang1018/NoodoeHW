@@ -38,11 +38,13 @@ interface RemoteApi {
     @GET("/dotapp/news.json")
     fun getTrafficData():InfoResponse
 
+    @Headers("X-Parse-Application-Id: vqYuKPOkLQLYHhk4QTGsGKFwATT4mBIGREI2m8eD")
     @GET("/api/login")
-    fun login(@Query("username",encoded = true)username:String, @Query("password",encoded = true)password:String, @Body body:RequestBody):UserRemote
+    fun login(@Query("username",encoded = true)username:String, @Query("password",encoded = true)password:String):UserRemote
 
+    @Headers("X-Parse-Application-Id: vqYuKPOkLQLYHhk4QTGsGKFwATT4mBIGREI2m8eD")
     @PUT("/api/users/{userId}")
-    fun updateUser(@Path("userId")userId:String,@Body body: RequestBody):UpdateResponse
+    fun updateUser(@Path("userId")userId:String, @Header("X-Parse-Session-Token")session:String, @Body body: RequestBody):UpdateResponse
 
 
 
