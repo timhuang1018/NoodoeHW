@@ -15,7 +15,7 @@ package com.nextv.noodoehw.domain.data
  */
 data class UserRemote(
     val username:String,
-    val phone:String,
+    val phone:String?,
     val createdAt:String,
     val updatedAt:String,
     val objectId:String,

@@ -24,3 +24,8 @@ open class EventWrapper<out T>(private val content:T){
         return "event wrapper has content:${content.toString()}"
     }
 }
+
+sealed class Result<out T>{
+    data class Success<out T>(val value:T):Result<T>()
+    object Failure:Result<Nothing>()
+}

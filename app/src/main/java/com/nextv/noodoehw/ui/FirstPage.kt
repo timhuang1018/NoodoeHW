@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.nextv.noodoehw.databinding.FirstPageBinding
 import com.nextv.noodoehw.di.DependencyProvider
+import com.nextv.noodoehw.helper.toast
 import com.nextv.noodoehw.viewmodel.FirstViewModel
 
 /**
@@ -19,7 +20,7 @@ class FirstPage:Fragment() {
     private lateinit var binding: FirstPageBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FirstPageBinding.inflate(inflater,container,false)
         return binding.root
     }
@@ -33,7 +34,21 @@ class FirstPage:Fragment() {
 
     private fun dataBinding() {
         viewModel.message.observe(viewLifecycleOwner,{
-            //TODO toast message
+            it.getContentIfNotHandled()?.let {message->
+                toast(message)
+            }
+        })
+
+        viewModel.emailError.observe(viewLifecycleOwner,{
+            it.getContentIfNotHandled()?.let {error->
+                binding.emailInputEt.error = error
+            }
+        })
+
+        viewModel.passwordError.observe(viewLifecycleOwner,{
+            it.getContentIfNotHandled()?.let {error->
+                binding.emailInputEt.error = error
+            }
         })
     }
 
