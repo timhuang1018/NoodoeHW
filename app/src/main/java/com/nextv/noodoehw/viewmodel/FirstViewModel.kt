@@ -48,7 +48,7 @@ class FirstViewModel(private val repository: UserRepository):ViewModel() {
             when(val result = repository.login(email,password)){
                 is Result.Success->{
                     Log.e("FirstViewModel","login Success")
-                    result.value
+                    //TODO might store some user data
                 }
                 Result.Failure->{
                     _message.value = EventWrapper("登入失敗，請檢查帳號密碼")

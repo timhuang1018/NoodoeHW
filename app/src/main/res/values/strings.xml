@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">NoodoeHW</string>
+    <string name="time_zone">Time Zone</string>
 </resources>
