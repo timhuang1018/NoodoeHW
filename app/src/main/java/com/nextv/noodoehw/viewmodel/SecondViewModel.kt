@@ -28,7 +28,6 @@ class SecondViewModel(private val repository: TrafficRepository): ViewModel() {
         viewModelScope.launch (Dispatchers.Main){
             when(val result = repository.getTrafficData()){
                 is Result.Success->{
-                    Log.e("FirstViewModel","login Success")
                     _data.value = result.value
                 }
                 Result.Failure->{

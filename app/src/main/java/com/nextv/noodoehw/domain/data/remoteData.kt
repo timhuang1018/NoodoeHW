@@ -19,7 +19,8 @@ data class UserRemote(
     val createdAt:String,
     val updatedAt:String,
     val objectId:String,
-    val sessionToken:String
+    val sessionToken:String,
+    val timezone:Int,
 )
 
 data class UpdateResponse(val updatedAt:String)

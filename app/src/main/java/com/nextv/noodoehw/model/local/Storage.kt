@@ -1,5 +1,6 @@
 package com.nextv.noodoehw.model.local
 
+import com.nextv.noodoehw.domain.UserUI
 import com.nextv.noodoehw.domain.data.UserRemote
 
 /**
@@ -7,5 +8,8 @@ import com.nextv.noodoehw.domain.data.UserRemote
  **/
 interface Storage {
     fun saveData(data: UserRemote)
-    fun getUserEmail(): String
+    fun getUser(): UserUI
+    fun getToken():String
+    fun getObjectId(): String
+    fun updateTimezone(timezone: Int)
 }

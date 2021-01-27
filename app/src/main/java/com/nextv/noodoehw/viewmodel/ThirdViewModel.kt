@@ -2,12 +2,10 @@ package com.nextv.noodoehw.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.nextv.noodoehw.config.Navigate
-import com.nextv.noodoehw.domain.TrafficUI
+import com.nextv.noodoehw.domain.UserUI
 import com.nextv.noodoehw.helper.EventWrapper
 import com.nextv.noodoehw.helper.Result
 import com.nextv.noodoehw.model.UserRepository
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 /**
@@ -18,20 +16,51 @@ class ThirdViewModel (private val repository: UserRepository): ViewModel() {
 
 
 
-    private val _email = MutableLiveData<String>()
-    val email : LiveData<String>
-        get() = _email
+    private val _user = MutableLiveData<UserUI>()
+    val user : LiveData<UserUI>
+        get() = _user
 
 
     private val _message = MutableLiveData<EventWrapper<String>>()
     val message : LiveData<EventWrapper<String>>
         get() = _message
 
+    private val timezones = mutableListOf<String>()
+
+    init {
+        //spec did not specify limit, so bottom and upper limit here are not important
+        for (i in 1..999){
+            timezones.add(i.toString())
+        }
+    }
+
     val loading = MutableLiveData<Boolean>()
 
 
     fun getData() {
-        _email.value = repository.getUserEmail()
+        _user.value = repository.getUser()
+    }
+
+    fun changeTimezone(position:Int){
+        val timezone = timezones[position].toInt()
+        loading.value = true
+        viewModelScope.launch {
+            when(val result = repository.updateTimeZone(timezone)){
+                is Result.Success->{
+                    _message.value = EventWrapper("更新成功！")
+                }
+                Result.Failure->{
+                    getData()
+                    _message.value = EventWrapper("更新失敗，請稍後再試")
+                }
+            }
+
+            loading.value = false
+        }
+    }
+
+    fun getTimeZoneList(): List<String> {
+        return timezones
     }
 
 }

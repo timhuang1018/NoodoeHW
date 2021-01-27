@@ -56,14 +56,13 @@ class FirstViewModel(private val repository: UserRepository):ViewModel() {
             when(val result = repository.login(email,password)){
                 is Result.Success->{
                     Log.e("FirstViewModel","login Success")
-                    loading.value = false
                     _navigation.value = EventWrapper(Navigate.ToSecond)
                 }
                 Result.Failure->{
-                    loading.value = false
                     _message.value = EventWrapper("登入失敗，請檢查帳號密碼")
                 }
             }
+            loading.value = false
         }
     }
 

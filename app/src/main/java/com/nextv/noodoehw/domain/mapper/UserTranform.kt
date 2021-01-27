@@ -10,8 +10,8 @@ import com.nextv.noodoehw.domain.data.UserRemote
 fun UserRemote.asUser(): UserUI {
     return UserUI(
         username =username,
-        phone= phone,
-        objectId=objectId,
-        sessionToken=sessionToken
+        timezone = timezone,
+//        objectId=objectId,
+//        sessionToken=sessionToken
     )
 }

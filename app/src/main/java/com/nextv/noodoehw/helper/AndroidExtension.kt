@@ -4,6 +4,10 @@ import android.content.Context
 import android.view.Gravity
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaType
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
 
 /**
  * Created by timhuang on 2021/1/26.
@@ -22,3 +26,7 @@ fun Context.toastLong(message:CharSequence?): Toast = Toast.makeText(this,messag
 fun Fragment.toast(message:CharSequence?) = activity?.toast(message)
 
 fun Fragment.toastLong(message:CharSequence?) = activity?.toastLong(message)
+
+val JSON : MediaType = "application/json; charset=utf-8".toMediaType()
+fun createJsonRequestBody(vararg params: Pair<String,Any>) =
+        JSONObject(mapOf(*params)).toString().toRequestBody(JSON)

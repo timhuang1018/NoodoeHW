@@ -6,9 +6,10 @@ package com.nextv.noodoehw.domain
 
 data class UserUI(
     val username:String,
-    val phone:String?,
+//    val phone:String?,
 //    val createdAt:String,
 //    val updatedAt:String,
-    val objectId:String,
-    val sessionToken:String
+    val timezone:Int,
+//    val objectId:String,
+//    val sessionToken:String
 )
