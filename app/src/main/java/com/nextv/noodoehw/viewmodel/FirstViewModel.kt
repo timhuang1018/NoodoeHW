@@ -2,6 +2,7 @@ package com.nextv.noodoehw.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
+import com.nextv.noodoehw.config.Navigate
 import com.nextv.noodoehw.helper.EventWrapper
 import com.nextv.noodoehw.helper.Result
 import com.nextv.noodoehw.model.UserRepository
@@ -26,6 +27,12 @@ class FirstViewModel(private val repository: UserRepository):ViewModel() {
     val passwordError : LiveData<EventWrapper<String>>
         get() = _passwordError
 
+    private val _navigation = MutableLiveData<EventWrapper<Navigate>>()
+    val navigation : LiveData<EventWrapper<Navigate>>
+        get() = _navigation
+
+    val loading = MutableLiveData<Boolean>()
+
     /*
     test2@qq.com
     test1234qq
@@ -43,14 +50,18 @@ class FirstViewModel(private val repository: UserRepository):ViewModel() {
             _passwordError.value = EventWrapper("不能為空值")
             return
         }
+        loading.value = true
 
         viewModelScope.launch (Dispatchers.Main){
             when(val result = repository.login(email,password)){
                 is Result.Success->{
                     Log.e("FirstViewModel","login Success")
                     //TODO might store some user data
+                    loading.value = false
+                    _navigation.value = EventWrapper(Navigate.ToSecond)
                 }
                 Result.Failure->{
+                    loading.value = false
                     _message.value = EventWrapper("登入失敗，請檢查帳號密碼")
                 }
             }

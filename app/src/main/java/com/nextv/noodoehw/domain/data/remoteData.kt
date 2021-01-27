@@ -32,7 +32,7 @@ data class Info(
     val endtime:String,
     val updatetime:String,
     val content:String,
-    val url:String
+    val url:String?
 )
 
 

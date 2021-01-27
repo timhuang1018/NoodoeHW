@@ -65,5 +65,15 @@
         android:textColor="@color/black"
         />
 
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="150dp"
+        android:visibility="gone"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

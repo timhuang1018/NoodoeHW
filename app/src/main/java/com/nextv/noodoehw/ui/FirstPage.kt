@@ -5,7 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
+import com.nextv.noodoehw.R
+import com.nextv.noodoehw.config.Navigate
 import com.nextv.noodoehw.databinding.FirstPageBinding
 import com.nextv.noodoehw.di.DependencyProvider
 import com.nextv.noodoehw.helper.toast
@@ -49,6 +52,24 @@ class FirstPage:Fragment() {
             it.getContentIfNotHandled()?.let {error->
                 binding.emailInputEt.error = error
             }
+        })
+
+        viewModel.navigation.observe(viewLifecycleOwner,{
+            it.getContentIfNotHandled()?.let {navigation->
+                when(navigation){
+                    Navigate.ToSecond->{
+                        activity?.supportFragmentManager?.commit {
+                            val second = SecondPage()
+                            replace(R.id.fragment_container_view,second)
+                            setReorderingAllowed(true)
+                        }
+                    }
+                }
+            }
+        })
+
+        viewModel.loading.observe(viewLifecycleOwner,{
+            binding.pbLoading.visibility = if (it) View.VISIBLE else View.GONE
         })
     }
 

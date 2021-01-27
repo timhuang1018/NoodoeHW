@@ -16,7 +16,7 @@ object DependencyProvider {
     }
 
     fun getSecondViewModelFactory(): SecondViewModelFactory {
-        return SecondViewModelFactory(TrafficRepository(apiInstance = RemoteApi.userApi))
+        return SecondViewModelFactory(TrafficRepository(apiInstance = RemoteApi.trafficApi))
     }
 
 

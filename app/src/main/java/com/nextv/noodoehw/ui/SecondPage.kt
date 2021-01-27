@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.nextv.noodoehw.databinding.SecondPageBinding
 import com.nextv.noodoehw.di.DependencyProvider
 import com.nextv.noodoehw.helper.toast
@@ -39,6 +40,11 @@ class SecondPage:Fragment() {
     }
 
     private fun setup() {
+        binding.verticalList.apply {
+            layoutManager = LinearLayoutManager(requireContext())
+            adapter = trafficAdapter
+        }
+
         viewModel.getData()
     }
 
@@ -51,7 +57,7 @@ class SecondPage:Fragment() {
         })
 
         viewModel.data.observe(viewLifecycleOwner,{
-            Log.e("SecondPage","get data:$it")
+//            Log.e("SecondPage","get data:$it")
             trafficAdapter.submitList(it)
         })
 

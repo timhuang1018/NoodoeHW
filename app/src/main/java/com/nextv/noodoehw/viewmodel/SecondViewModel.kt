@@ -2,7 +2,7 @@ package com.nextv.noodoehw.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.nextv.noodoehw.domain.data.Info
+import com.nextv.noodoehw.domain.TrafficUI
 import com.nextv.noodoehw.helper.EventWrapper
 import com.nextv.noodoehw.helper.Result
 import com.nextv.noodoehw.model.TrafficRepository
@@ -15,8 +15,8 @@ import kotlinx.coroutines.launch
 
 class SecondViewModel(private val repository: TrafficRepository): ViewModel() {
 
-    private val _data = MutableLiveData<List<Info>>()
-    val data : LiveData<List<Info>>
+    private val _data = MutableLiveData<List<TrafficUI>>()
+    val data : LiveData<List<TrafficUI>>
         get() = _data
 
     private val _message = MutableLiveData<EventWrapper<String>>()
