@@ -60,6 +60,12 @@ class SecondPage:Fragment() {
 
         viewModel.data.observe(viewLifecycleOwner,{
             trafficAdapter.submitList(it)
+            binding.tvNoContent.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
+        })
+
+
+        viewModel.loading.observe(viewLifecycleOwner,{
+            binding.pbLoading.visibility = if (it) View.VISIBLE else View.GONE
         })
 
     }

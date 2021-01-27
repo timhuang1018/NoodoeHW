@@ -22,6 +22,8 @@ class SecondViewModel(private val repository: TrafficRepository): ViewModel() {
     val message : LiveData<EventWrapper<String>>
         get() = _message
 
+    val loading = MutableLiveData<Boolean>()
+
 
     fun getData(){
         viewModelScope.launch (Dispatchers.Main){
@@ -33,6 +35,7 @@ class SecondViewModel(private val repository: TrafficRepository): ViewModel() {
                     _message.value = EventWrapper("伺服器錯誤")
                 }
             }
+            loading.value = false
         }
     }
 }
