@@ -1,13 +1,14 @@
 package com.nextv.noodoehw.ui
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.commit
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.nextv.noodoehw.R
 import com.nextv.noodoehw.databinding.SecondPageBinding
 import com.nextv.noodoehw.di.DependencyProvider
 import com.nextv.noodoehw.helper.toast
@@ -37,6 +38,7 @@ class SecondPage:Fragment() {
 
         setup()
         dataBinding()
+        setListener()
     }
 
     private fun setup() {
@@ -57,9 +59,25 @@ class SecondPage:Fragment() {
         })
 
         viewModel.data.observe(viewLifecycleOwner,{
-//            Log.e("SecondPage","get data:$it")
             trafficAdapter.submitList(it)
         })
 
     }
+
+
+    private fun setListener() {
+        binding.tvTimeZone.setOnClickListener {
+            goThirdPage()
+        }
+    }
+
+    private fun goThirdPage() {
+        activity?.supportFragmentManager?.commit {
+            val second = ThirdPage()
+            add(R.id.fragment_container_view,second)
+            setReorderingAllowed(true)
+            addToBackStack(null)
+        }
+    }
+
 }

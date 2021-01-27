@@ -56,7 +56,6 @@ class FirstViewModel(private val repository: UserRepository):ViewModel() {
             when(val result = repository.login(email,password)){
                 is Result.Success->{
                     Log.e("FirstViewModel","login Success")
-                    //TODO might store some user data
                     loading.value = false
                     _navigation.value = EventWrapper(Navigate.ToSecond)
                 }

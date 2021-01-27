@@ -30,7 +30,7 @@ class FirstPage:Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this,DependencyProvider.getFirstViewModelFactory()).get(FirstViewModel::class.java)
+        viewModel = ViewModelProvider(this,DependencyProvider.getFirstViewModelFactory(requireContext())).get(FirstViewModel::class.java)
         setupListener()
         dataBinding()
     }

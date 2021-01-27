@@ -14,6 +14,7 @@ import retrofit2.http.*
 /**
  * Created by timhuang on 2021/1/25.
  **/
+//TODO add user and traffic interface
 interface RemoteApi {
 
     companion object{
