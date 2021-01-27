@@ -1,6 +1,6 @@
 package com.nextv.noodoehw.ui
 
-import android.R
+import android.R.layout.simple_spinner_item
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -66,7 +66,7 @@ class ThirdPage:Fragment() {
     private fun setupAutoCompleteView() {
         val timezoneList=viewModel.getTimeZoneList()
         val adapter: ArrayAdapter<String> = ArrayAdapter<String>(
-                requireContext(), R.layout.simple_spinner_item,
+                requireContext(), simple_spinner_item,
                 timezoneList)
         binding.tvTimeZone.setAdapter(adapter)
         binding.tvTimeZone.onItemClickListener =

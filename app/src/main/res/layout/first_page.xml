@@ -21,9 +21,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"
-            android:text="test2@qq.com"
-            android:hint="Email"
+            android:hint="@string/email"
             />
+        <!--            android:text="test2@qq.com"-->
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -44,9 +45,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:text="test1234qq"
-            android:hint="Password"
+            android:hint="@string/password"
             />
+        <!--            android:text="test1234qq"-->
+
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -54,7 +56,7 @@
         android:id="@+id/bt_submit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="LOG IN"
+        android:text="@string/log_in"
         app:layout_constraintTop_toBottomOf="@id/password_input_layout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

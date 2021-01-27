@@ -44,7 +44,7 @@ class ThirdViewModel (private val repository: UserRepository): ViewModel() {
         val timezone = timezones[position].toInt()
         loading.value = true
         viewModelScope.launch {
-            when(val result = repository.updateTimeZone(timezone)){
+            when(repository.updateTimeZone(timezone)){
                 is Result.Success->{
                     _message.value = EventWrapper("更新成功！")
                 }
@@ -64,6 +64,7 @@ class ThirdViewModel (private val repository: UserRepository): ViewModel() {
 
 }
 
+@Suppress("UNCHECKED_CAST")
 class ThirdViewModelFactory(private val repository: UserRepository): ViewModelProvider.NewInstanceFactory(){
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return ThirdViewModel(repository) as T

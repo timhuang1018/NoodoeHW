@@ -40,6 +40,7 @@ class SecondViewModel(private val repository: TrafficRepository): ViewModel() {
     }
 }
 
+@Suppress("UNCHECKED_CAST")
 class SecondViewModelFactory(private val repository: TrafficRepository): ViewModelProvider.NewInstanceFactory(){
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return SecondViewModel(repository) as T

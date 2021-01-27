@@ -14,7 +14,8 @@ import java.text.SimpleDateFormat
 
 class TrafficRepository(private val apiInstance: TrafficApi) {
 
-    val df = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+    //for comparable in timestamp, if allow, use local date time library is better
+    private val df = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 
     suspend fun getTrafficData(): Result<List<TrafficUI>> {
         return try {

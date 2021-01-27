@@ -9,4 +9,4 @@ This is an Android application build up for Noodoe's home work.
 + [x] ui for Case 3: Update Users
 + [x] 顯示目前登入使用者的email與timezone
 + [x] 使用者可調整timezone。
-+ [x]按返回按鈕,會回到Case 2的頁面。請使用 Fragment 實現。
++ [x] 按返回按鈕,會回到Case 2的頁面。請使用 Fragment 實現。

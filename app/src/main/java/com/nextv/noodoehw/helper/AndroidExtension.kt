@@ -25,7 +25,6 @@ fun Context.toastLong(message:CharSequence?): Toast = Toast.makeText(this,messag
 
 fun Fragment.toast(message:CharSequence?) = activity?.toast(message)
 
-fun Fragment.toastLong(message:CharSequence?) = activity?.toastLong(message)
 
 val JSON : MediaType = "application/json; charset=utf-8".toMediaType()
 fun createJsonRequestBody(vararg params: Pair<String,Any>) =

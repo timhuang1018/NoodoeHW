@@ -53,7 +53,7 @@ class FirstViewModel(private val repository: UserRepository):ViewModel() {
         loading.value = true
 
         viewModelScope.launch (Dispatchers.Main){
-            when(val result = repository.login(email,password)){
+            when(repository.login(email,password)){
                 is Result.Success->{
                     Log.e("FirstViewModel","login Success")
                     _navigation.value = EventWrapper(Navigate.ToSecond)
@@ -68,6 +68,7 @@ class FirstViewModel(private val repository: UserRepository):ViewModel() {
 
 }
 
+@Suppress("UNCHECKED_CAST")
 class FirstViewModelFactory(private val repository: UserRepository):ViewModelProvider.NewInstanceFactory(){
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         return FirstViewModel(repository) as T

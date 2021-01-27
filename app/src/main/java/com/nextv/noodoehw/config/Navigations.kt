@@ -6,5 +6,4 @@ package com.nextv.noodoehw.config
 
 sealed class Navigate{
     object ToSecond:Navigate()
-    object ToThird:Navigate()
 }

@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">NoodoeHW</string>
     <string name="time_zone">Time Zone</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="log_in">LOG IN</string>
 </resources>

@@ -1,7 +1,6 @@
 package com.nextv.noodoehw.model.remote
 
 import com.nextv.noodoehw.BuildConfig
-import com.nextv.noodoehw.domain.data.InfoResponse
 import com.nextv.noodoehw.domain.data.UpdateResponse
 import com.nextv.noodoehw.domain.data.UserRemote
 import okhttp3.OkHttpClient
