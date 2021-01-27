@@ -4,16 +4,15 @@ import android.util.Log
 import com.nextv.noodoehw.domain.TrafficUI
 import com.nextv.noodoehw.domain.mapper.asUIdata
 import com.nextv.noodoehw.helper.Result
-import com.nextv.noodoehw.model.remote.RemoteApi
+import com.nextv.noodoehw.model.remote.TrafficApi
 import java.text.ParseException
 import java.text.SimpleDateFormat
-import java.util.*
 
 /**
  * Created by timhuang on 2021/1/26.
  **/
 
-class TrafficRepository(private val apiInstance: RemoteApi) {
+class TrafficRepository(private val apiInstance: TrafficApi) {
 
     val df = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
 

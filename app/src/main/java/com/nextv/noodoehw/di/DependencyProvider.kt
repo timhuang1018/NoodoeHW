@@ -4,7 +4,8 @@ import android.content.Context
 import com.nextv.noodoehw.model.TrafficRepository
 import com.nextv.noodoehw.model.UserRepository
 import com.nextv.noodoehw.model.local.SharePrefStorage
-import com.nextv.noodoehw.model.remote.RemoteApi
+import com.nextv.noodoehw.model.remote.TrafficApi
+import com.nextv.noodoehw.model.remote.UserApi
 import com.nextv.noodoehw.viewmodel.FirstViewModelFactory
 import com.nextv.noodoehw.viewmodel.SecondViewModelFactory
 import com.nextv.noodoehw.viewmodel.ThirdViewModelFactory
@@ -16,15 +17,15 @@ import com.nextv.noodoehw.viewmodel.ThirdViewModelFactory
  **/
 object DependencyProvider {
     fun getFirstViewModelFactory(context: Context): FirstViewModelFactory {
-        return FirstViewModelFactory(UserRepository(apiInstance = RemoteApi.userApi,storage = SharePrefStorage(context)))
+        return FirstViewModelFactory(UserRepository(apiInstance = UserApi.userApi,storage = SharePrefStorage(context)))
     }
 
     fun getSecondViewModelFactory(): SecondViewModelFactory {
-        return SecondViewModelFactory(TrafficRepository(apiInstance = RemoteApi.trafficApi))
+        return SecondViewModelFactory(TrafficRepository(apiInstance = TrafficApi.trafficApi))
     }
 
     fun getThirdViewModelFactory(context: Context): ThirdViewModelFactory {
-        return ThirdViewModelFactory(UserRepository(apiInstance = RemoteApi.userApi,storage = SharePrefStorage(context)))
+        return ThirdViewModelFactory(UserRepository(apiInstance = UserApi.userApi,storage = SharePrefStorage(context)))
 
     }
 

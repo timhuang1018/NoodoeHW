@@ -6,14 +6,14 @@ import com.nextv.noodoehw.helper.Result
 import com.nextv.noodoehw.helper.createJsonRequestBody
 import com.nextv.noodoehw.model.local.Storage
 import com.nextv.noodoehw.model.local.TIME_ZONE
-import com.nextv.noodoehw.model.remote.RemoteApi
+import com.nextv.noodoehw.model.remote.UserApi
 
 /**
  * Created by TimHuang on 2021/1/25.
  * processing data related to user
  */
 class UserRepository(
-        private val apiInstance:RemoteApi,
+        private val apiInstance:UserApi,
         private val storage:Storage
 ){
 

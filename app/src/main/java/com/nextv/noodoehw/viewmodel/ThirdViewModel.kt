@@ -1,6 +1,5 @@
 package com.nextv.noodoehw.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.nextv.noodoehw.domain.UserUI
 import com.nextv.noodoehw.helper.EventWrapper
